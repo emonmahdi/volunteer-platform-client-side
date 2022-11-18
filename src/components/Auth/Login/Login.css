@@ -1,0 +1,22 @@
+.login-form{
+    border: 1px solid #000;
+    padding: 30px; 
+    width: 500px;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.login-btn{
+    border:1px solid #333;
+    border-radius: 20px;
+    padding: 7px 20px;
+    width: 400px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex; 
+}
+.iconG{
+    font-size: 20px;
+    display: inline;
+    margin-right: 80px;
+}
