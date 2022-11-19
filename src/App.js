@@ -7,6 +7,7 @@ import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register';
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome';
 import AddEvent from './components/Dashboard/AddEvent/AddEvent';
+import RequireAuth from './components/Auth/RequireAuth/RequireAuth';
 
 
 function App() {
@@ -16,8 +17,17 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/dashboard' element={<DashboardHome />} />
-        <Route path='/add-event' element={<AddEvent />} />
+
+        <Route path='/dashboard' element={
+          <RequireAuth> 
+            <DashboardHome />
+          </RequireAuth>
+        } />
+        <Route path='/add-event' element={
+        <RequireAuth> 
+          <AddEvent />
+        </RequireAuth>
+        } />
       </Routes>
     </div>
   );

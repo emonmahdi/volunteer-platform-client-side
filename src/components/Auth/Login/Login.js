@@ -2,15 +2,23 @@ import React from 'react'
 import './Login.css'
 import logoImg from '../../../assets/logo.png'
 import glogoImg from '../../../assets/google-logo.png'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
+import Loading from '../Loading/Loading'
 
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+    const location = useLocation();
 
+    const from = location?.state?.from?.pathname || '/';
+    
+
+    if(loading){
+      return <Loading></Loading>
+    }
 
     let errorElement; 
     if (error) { 
@@ -18,8 +26,9 @@ const Login = () => {
       }
 
     if(user){
-        navigate('/')
+        navigate(from, {replace: true})
     }  
+   
 
 
     const handleSubmit = (e) => {
