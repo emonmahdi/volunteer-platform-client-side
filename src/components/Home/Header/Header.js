@@ -39,10 +39,11 @@ const Header = () => {
                 Dashboard
               </NavDropdown.Item> 
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item href="/">
                 <button onClick={handleSignOut} className='btn btn-danger mx-3'>Log Out</button> 
               </NavDropdown.Item>
             </NavDropdown>
+            <Link to='register'><button className='btn btn-primary mx-3'>Register</button></Link>
              {/* {user?.photoURL ? <span>
                 <img src={user?.photoURL} className='img-fluid rounded-circle me-2' width='40px' height='40px' alt="" />
               </span> :  ""} 
@@ -52,9 +53,7 @@ const Header = () => {
            
             :
             <> 
-            
-            
-              <Link to='register'><button className='btn btn-primary mx-3'>Register</button></Link>
+              
               <Link to='/login'><button  className='btn btn-dark'>Login</button></Link> 
             </>
             
