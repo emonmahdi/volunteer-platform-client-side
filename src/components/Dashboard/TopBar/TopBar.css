@@ -1,0 +1,19 @@
+.topbar-section{
+    height: 60px;
+    position: absolute;
+    left: 210px;
+    background-color: #fff;
+    width: calc(100% - 0px); 
+}
+.topbar-section h3{
+    text-align: left;
+    margin-top: 15px;
+    padding:0 30px;
+    font-size: 22px;
+}
+.table-list{
+    width: 80%;
+    margin: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}

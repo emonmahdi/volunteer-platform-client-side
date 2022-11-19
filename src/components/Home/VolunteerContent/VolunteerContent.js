@@ -15,7 +15,7 @@ const VolunteerContent = () => {
   return (
     <div>
       <div className="search-box w-50 mx-auto my-3 p-5">
-        <h3 className="fw-bold text-uppercase mb-2">I grow by helping people by need</h3>
+        <h3 className="fw-bold text-uppercase my-4">I grow by helping people by need</h3>
         <InputGroup className="mb-3">
           <Form.Control
             placeholder="Search..."

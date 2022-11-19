@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
 import logoImg from '../../../assets/logo.png'
 import auth from '../../../firebase.init'
+import './Header.css'
 
 
 const Header = () => {
@@ -17,9 +18,9 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" fixed='top' bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
             <img src={logoImg} height='80px' width='140px' className='img-fluid' alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -31,12 +32,35 @@ const Header = () => {
             <Nav.Link href="#pricing">Blog</Nav.Link> 
           </Nav> 
            {
-            user ? <button onClick={handleSignOut} className='btn btn-danger mx-3'>Log Out</button> 
+            user ? 
+            <>
+            <NavDropdown title={ <span className='fw-bold ms-3'>{user?.displayName}</span> } id="collasible-nav-dropdown"> 
+              <NavDropdown.Item as={Link} to="/dashboard">
+                Dashboard
+              </NavDropdown.Item> 
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                <button onClick={handleSignOut} className='btn btn-danger mx-3'>Log Out</button> 
+              </NavDropdown.Item>
+            </NavDropdown>
+             {/* {user?.photoURL ? <span>
+                <img src={user?.photoURL} className='img-fluid rounded-circle me-2' width='40px' height='40px' alt="" />
+              </span> :  ""} 
+              <span>{user?.displayName}</span>
+              <button onClick={handleSignOut} className='btn btn-danger mx-3'>Log Out</button>  */}
+            </>
+           
             :
-           <Link to='register'><button className='btn btn-primary mx-3'>Register</button></Link> 
+            <> 
+            
+            
+              <Link to='register'><button className='btn btn-primary mx-3'>Register</button></Link>
+              <Link to='/login'><button  className='btn btn-dark'>Login</button></Link> 
+            </>
+            
            }
           
-         <Link to='/login'><button  className='btn btn-dark'>Login</button></Link> 
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>
