@@ -1,7 +1,6 @@
 import React from 'react'
 import './Login.css'
-import logoImg from '../../../assets/logo.png'
-import glogoImg from '../../../assets/google-logo.png'
+import logoImg from '../../../assets/logo.png' 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -38,7 +37,10 @@ const Login = () => {
   return (
     <div>
       <div className='mx-auto w-25 mt-4'>
-        <img src={logoImg} height='100px' width='200px' className='img-fluid' alt="" />
+      <Link to='/'> 
+         <img src={logoImg} height='100px' width='200px' className='img-fluid' alt="" />
+        </Link>
+         
       </div>
       <div className='login-form'>
         <form onSubmit={handleSubmit}>

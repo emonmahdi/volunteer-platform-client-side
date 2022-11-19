@@ -7,9 +7,11 @@ import './Register.css'
 
 const Register = () => {
   return (
-    <div>
+    <div className='register-route'>
       <div className='mx-auto w-25 mt-4'>
-        <img src={logoImg} height='100px' width='200px' className='img-fluid' alt="" />
+        <Link to='/'> 
+         <img src={logoImg} height='100px' width='200px' className='img-fluid' alt="" />
+        </Link>
       </div>
       <div className='register-form'>
         <form>

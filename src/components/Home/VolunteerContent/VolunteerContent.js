@@ -7,9 +7,9 @@ const VolunteerContent = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('./volunteer.json')
+        fetch('http://localhost:5000/events')
         .then(res => res.json())
-        .then(data => setServices(data))
+        .then(data => setServices(data));
     }, [])
 
   return (
@@ -28,7 +28,7 @@ const VolunteerContent = () => {
       <div className="container"> 
             <div className="row">
                 {services.map(service => <SingleVolunteer
-                key={service.id}
+                key={service._id}
                 service={service}
                 >
 

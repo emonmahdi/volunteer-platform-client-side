@@ -8,7 +8,8 @@ import Register from './components/Auth/Register/Register';
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome';
 import AddEvent from './components/Dashboard/AddEvent/AddEvent';
 import RequireAuth from './components/Auth/RequireAuth/RequireAuth';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         </RequireAuth>
         } />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

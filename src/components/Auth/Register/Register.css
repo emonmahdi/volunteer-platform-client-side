@@ -1,5 +1,6 @@
 .register-form{
     border: 1px solid #000;
+    background-color: #fff;
     padding: 30px; 
     width: 500px;
     margin: 40px auto;
@@ -8,9 +9,10 @@
 }
 .register-form input{
     display: block; 
-    border-bottom: 2px solid #ddd;
+    border: none !important;
+    border-bottom: 2px solid #ddd !important;
     width: 100%;
-    outline: none;
+    outline: none !important;
     padding:  10px 5px;
     margin-bottom: 15px;
 }
