@@ -1,0 +1,23 @@
+.single-card { 
+    margin-bottom: 20px; 
+     
+    position: relative;
+}
+.single-card img{
+    
+}
+.single-card h5{
+    position: absolute;
+    top: 83%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 18px;
+}
+.link-items{
+    text-decoration: none;
+    color:#000;
+}
+.link-items:hover{
+    color:rgb(16, 12, 223)
+}

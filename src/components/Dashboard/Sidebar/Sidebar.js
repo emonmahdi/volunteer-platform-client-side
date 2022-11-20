@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { FaUserFriends } from "react-icons/fa";
 import logoImg from '../../../assets/logo.png'
 import './Sidebar.css'
 
@@ -12,10 +14,10 @@ const Sidebar = () => {
         <div className='menu-item'>
             <ul>
                 <Link style={{textDecoration: 'none', color: '#000'}} to='/dashboard'>
-                    <li>Volunteer register list</li> 
+                    <span><li><FaUserFriends className='icons' /> Volunteer register list</li> </span>
                 </Link>
                 <Link style={{textDecoration: 'none', color: '#000'}} to='/add-event'>
-                    <li>Add event</li>
+                    <span><li><BsFillPlusCircleFill className='icons' /> Add event</li></span>
                 </Link>
                 
             </ul>

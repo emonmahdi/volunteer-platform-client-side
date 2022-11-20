@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './TopBar.css'
 import Table from 'react-bootstrap/Table';
+import { RiDeleteBinLine } from "react-icons/ri";
+
 
 const TopBar = () => {
   const [volunteer, setVolunteer] = useState([]);
@@ -12,7 +14,30 @@ const TopBar = () => {
       console.log(data);
       setVolunteer(data);
     })
-  }, [])
+  }, []);
+
+
+  const handleDelete = (id) => {
+    const procced = window.confirm("Are sure delete the volunteer?");
+
+    if(procced){ 
+      const url = `http://localhost:5000/volunteer/${id}`
+      fetch(url, {
+        method: "DELETE",
+  
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.deletedCount > 0){
+          const remaining = volunteer.filter(vl => vl._id !== id);
+          setVolunteer(remaining)
+        }
+      });
+    }
+
+  }
+
 
   return (
     <div className='topbar-section'>
@@ -29,23 +54,17 @@ const TopBar = () => {
         </tr>
       </thead>
       <tbody> 
-      <tr>
+       
         {
-          volunteer.map(volun => {
-            const {_id, name, email, description, date, organize} = volun;
-            return(
-              <> 
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{date}</td>
-                <td>{organize}</td>
-                <td><button className='btn btn-danger'>delete</button></td>
-                
-              </>
-            )
-          })
+          volunteer.map(volun => <tr>
+            <td>{volun.name}</td>
+            <td>{volun.email}</td>
+            <td>{volun.date}</td>
+            <td>{volun.organize}</td>
+            <td><button onClick={() => handleDelete(volun._id)} className='btn btn-danger'><RiDeleteBinLine /></button></td>
+          </tr> )
         } 
-        </tr>
+        
         {/* <tr>
           <td>Pro Rasel</td>
           <td>rasel@gmail.com</td>

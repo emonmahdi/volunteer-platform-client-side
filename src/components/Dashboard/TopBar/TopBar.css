@@ -3,8 +3,12 @@
     position: absolute;
     left: 210px;
     background-color: #fff;
-    width: calc(100% - 0px); 
+    width: 84%; 
     
+}
+.list-volunter{
+    overflow: hidden;
+    width: 100%;
 }
 .topbar-section h3{
     text-align: left;
@@ -13,7 +17,7 @@
     font-size: 22px;
 }
 .table-list{
-    width: 70%;
+    width: 80%;
     margin: 30px;
     background-color: #fff;
     border-radius: 10px;

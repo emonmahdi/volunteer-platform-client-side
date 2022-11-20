@@ -17,10 +17,10 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <div className='navbar-top'>
       <Navbar collapseOnSelect expand="lg" fixed='top' bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
             <img src={logoImg} height='80px' width='140px' className='img-fluid' alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,6 +35,9 @@ const Header = () => {
             user ? 
             <>
             <NavDropdown title={ <span className='fw-bold ms-3'>{user?.displayName}</span> } id="collasible-nav-dropdown"> 
+              <NavDropdown.Item as={Link} to="/order">
+                Order
+              </NavDropdown.Item> 
               <NavDropdown.Item as={Link} to="/dashboard">
                 Dashboard
               </NavDropdown.Item> 
@@ -42,7 +45,7 @@ const Header = () => {
               <NavDropdown.Item href="/">
                 <button onClick={handleSignOut} className='btn btn-danger mx-3'>Log Out</button> 
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown>    
             <Link to='register'><button className='btn btn-primary mx-3'>Register</button></Link>
              {/* {user?.photoURL ? <span>
                 <img src={user?.photoURL} className='img-fluid rounded-circle me-2' width='40px' height='40px' alt="" />

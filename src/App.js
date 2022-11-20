@@ -10,10 +10,13 @@ import AddEvent from './components/Dashboard/AddEvent/AddEvent';
 import RequireAuth from './components/Auth/RequireAuth/RequireAuth';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Checkout from './components/Pages/Checkout/Checkout';
+import Header from './components/Home/Header/Header';
+import Order from './components/Pages/Order/Order';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
@@ -27,6 +30,16 @@ function App() {
         <Route path='/add-event' element={
         <RequireAuth> 
           <AddEvent />
+        </RequireAuth>
+        } />
+        <Route path='/checkout/:Id' element={
+        <RequireAuth> 
+          <Checkout />
+        </RequireAuth>
+        } />
+        <Route path='/order' element={
+        <RequireAuth> 
+          <Order />
         </RequireAuth>
         } />
       </Routes>
