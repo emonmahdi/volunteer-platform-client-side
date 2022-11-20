@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Checkout from './components/Pages/Checkout/Checkout';
 import Header from './components/Home/Header/Header';
 import Order from './components/Pages/Order/Order';
+import Donation from './components/Pages/Donation/Donation';
+import Blog from './components/Pages/Blog/Blog';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/donation' element={<Donation />} />
+        <Route path='/blog' element={<Blog />} />
 
         <Route path='/dashboard' element={
           <RequireAuth> 

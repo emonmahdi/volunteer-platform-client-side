@@ -25,7 +25,7 @@ const VolunteerContent = () => {
           <button className="btn btn-primary">Search</button> 
         </InputGroup>
       </div>
-      <div className="container"> 
+      <div id='event' className="container"> 
             <div className="row">
                 {services.map(service => <SingleVolunteer
                 key={service._id}
