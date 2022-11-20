@@ -9,7 +9,7 @@ const Order = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    
+
     const email = user.email;
 
     const getOrders =() => {
@@ -29,6 +29,30 @@ const Order = () => {
     
   }, [user]);
 
+  // Order Delete Operation
+  const handleDelete = (id) => {
+    const procced = window.confirm("Are sure delete the Order?");
+
+    if(procced){ 
+      const url = `http://localhost:5000/order/${id}`
+      fetch(url, {
+        method: "DELETE",
+  
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.deletedCount > 0){
+          const remaining = orders.filter(vl => vl._id !== id);
+          setOrders(remaining)
+        }
+      });
+    }
+
+  }
+
+
+
   return (
     <>
       <Header />
@@ -37,7 +61,7 @@ const Order = () => {
         <div className="container">
           <div className="row">
             {orders.map((order) => {
-              const { name, event, img, date } = order;
+              const {_id, name, event, img, date } = order;
               return (
                 <div className="col-md-6">
                   <div className="single-order d-flex align-items-center border p-3 shadow rounded mb-3 bg-white">
@@ -50,7 +74,7 @@ const Order = () => {
                           <h5>{event}</h5>
                           <h6>{date}</h6>
                         </div>
-                        <button className="btn btn-danger d-block  mt-3">Cancel</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-danger d-block  mt-3">Cancel</button>
                       </div>
                     </div>
                   </div>
