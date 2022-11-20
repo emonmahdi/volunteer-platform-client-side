@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 import Header from "../../Home/Header/Header";
 import "./Order.css";
 
 const Order = () => {
+  const [user] = useAuthState(auth)
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order")
-      .then((res) => res.json())
-      .then((data) => {
-        setOrders(data);
-      });
-  }, []);
+    
+    const email = user.email;
+
+    const getOrders =() => {
+      try{
+        fetch(`http://localhost:5000/order?email=${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setOrders(data);
+        });
+      }
+      catch(err){
+        console.log(err.message);
+      }
+    }
+
+    getOrders();
+    
+  }, [user]);
 
   return (
     <>
