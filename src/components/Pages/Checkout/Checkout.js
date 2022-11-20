@@ -20,7 +20,7 @@ const Checkout = () => {
   
  /*  const onSubmit = (data) => { 
     console.log(data);
-    const url = `http://localhost:5000/order`;
+    const url = `https://volunteer-platform.onrender.com/order`;
     axios.post(url, data)
     .then(res => {
         console.log(res.data);
@@ -41,7 +41,7 @@ const Checkout = () => {
         address: e.target.address.value,
         phone: e.target.phone.value
     }
-    axios.post('http://localhost:5000/order', order)
+    axios.post('https://volunteer-platform.onrender.com/order', order)
     .then(res => {
         console.log(res);
         const {data} = res;
@@ -53,7 +53,7 @@ const Checkout = () => {
 }
 
   useEffect(() => {
-    fetch(`http://localhost:5000/events/${Id}`)
+    fetch(`https://volunteer-platform.onrender.com/events/${Id}`)
       .then((res) => res.json())
       .then((data) => {
         setService(data);

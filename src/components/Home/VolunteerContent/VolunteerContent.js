@@ -7,7 +7,7 @@ const VolunteerContent = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('https://volunteer-platform.onrender.com/events')
         .then(res => res.json())
         .then(data => setServices(data));
     }, [])

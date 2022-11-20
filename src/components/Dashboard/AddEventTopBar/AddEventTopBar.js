@@ -23,7 +23,7 @@ const AddEventTopBar = () => {
     const handleAddEvent = (e) => {
         e.preventDefault();
 
-        const url = 'http://localhost:5000/event';
+        const url = 'https://volunteer-platform.onrender.com/event';
         fetch(url, {
             method:"POST",
             headers: {

@@ -26,7 +26,7 @@ const Register = () => {
     }
     console.log(formData);
 
-    const url = 'http://localhost:5000/volunteer'
+    const url = 'https://volunteer-platform.onrender.com/volunteer'
     fetch(url, {
       method: 'POST',
       headers:{

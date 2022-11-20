@@ -14,7 +14,7 @@ const Order = () => {
 
     const getOrders =() => {
       try{
-        fetch(`http://localhost:5000/order?email=${email}`)
+        fetch(`https://volunteer-platform.onrender.com/order?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           setOrders(data);
@@ -34,7 +34,7 @@ const Order = () => {
     const procced = window.confirm("Are sure delete the Order?");
 
     if(procced){ 
-      const url = `http://localhost:5000/order/${id}`
+      const url = `https://volunteer-platform.onrender.com/order/${id}`
       fetch(url, {
         method: "DELETE",
   

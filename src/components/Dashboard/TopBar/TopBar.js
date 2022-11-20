@@ -8,7 +8,7 @@ const TopBar = () => {
   const [volunteer, setVolunteer] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/volunteer')
+    fetch('https://volunteer-platform.onrender.com/volunteer')
     .then(res => res.json())
     .then(data => {
       console.log(data);
@@ -21,7 +21,7 @@ const TopBar = () => {
     const procced = window.confirm("Are sure delete the volunteer?");
 
     if(procced){ 
-      const url = `http://localhost:5000/volunteer/${id}`
+      const url = `https://volunteer-platform.onrender.com/volunteer/${id}`
       fetch(url, {
         method: "DELETE",
   
